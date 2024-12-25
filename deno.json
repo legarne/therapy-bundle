@@ -1,0 +1,39 @@
+{
+  "name": "@therapy/bundle",
+  "version": "0.0.1",
+  "license": "MIT",
+  "tasks": {
+    "test": "deno test -A --coverage --clean",
+    "coverage": {
+      "command": "deno coverage",
+      "dependencies": ["test"]
+    },
+    "coverage-html": {
+      "command": "deno coverage --html",
+      "dependencies": ["test"]
+    }
+  },
+  "exports": {
+    ".": "./mod.ts",
+    "./dev": "./dev.ts",
+    "./build": "./build.ts",
+    "./types": "./types.ts"
+  },
+  "imports": {
+    "@std/cli": "jsr:@std/cli@^1.0.9",
+    "@std/path": "jsr:@std/path@1.0.8",
+    "@std/fs": "jsr:@std/fs@1.0.8",
+    "@libs/xml": "jsr:@libs/xml@6.0.4",
+    "@luca/esbuild-deno": "jsr:@luca/esbuild-deno-loader@^0.11.1",
+    "chalk": "npm:chalk@5.4.1",
+    "esbuild": "npm:esbuild@0.24.2",
+    "esbuild-sass": "npm:esbuild-sass-plugin@3.3.1"
+  },
+  "fmt": {
+    "lineWidth": 80,
+    "exclude": ["./_tests/_mocks/**/*"]
+  },
+  "publish": {
+    "exclude": ["_tests/", "scripts/", "./.github"]
+  }
+}
