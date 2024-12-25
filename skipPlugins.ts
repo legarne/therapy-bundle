@@ -1,6 +1,11 @@
 import * as path from "@std/path";
 import type { Loader, Plugin } from "esbuild";
 
+/**
+ * Builds default plugin loaders for esbuild.
+ * @module
+ */
+
 const loaderTypes: Record<string, Loader> = {
   "css": "css",
   "module.css": "local-css",

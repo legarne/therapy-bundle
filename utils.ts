@@ -4,6 +4,11 @@ import { Buffer } from "node:buffer";
 import files from "./files.ts";
 
 /**
+ * Collection of utilities for other modules to use, mainly fs operations.
+ * @module
+ */
+
+/**
  * Takes a *nix path, and ensures it is properly joined and normalized.
  * @param filePath - *nix path
  * @returns A joined and normalized path

@@ -1,3 +1,9 @@
+/**
+ * Default files that are created when starting a new project
+ * for the first time.
+ * @module
+ */
+
 const denoJson = `{
   "tasks": {
     "dev": "deno run -RWNE --allow-run jsr:@therapy/bundle/dev",

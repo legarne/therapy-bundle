@@ -8,6 +8,11 @@ import type { Config } from "./types.ts";
 import { loaderPlugins } from "./skipPlugins.ts";
 
 /**
+ * Collection of utilities specific to the needs of esbuild.
+ * @module
+ */
+
+/**
  * Transforms index.html found in Deno.cwd(), and returns it as a string.
  * This function will replace .ts scripts to .js, and map them post esbuild, as well as
  * add .css links.

@@ -3,6 +3,11 @@ import chalk from "chalk";
 import type { Config } from "./types.ts";
 
 /**
+ * The primary commands for building and serving.
+ * @module
+ */
+
+/**
  * Runs esbuild's serve and watch capabilities.
  * @param therapyConfig - A passed config, where the port and esbuild options are consumed
  */
