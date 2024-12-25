@@ -69,8 +69,8 @@ The build task will bundle the project and export to `./dist` by default.
   "txt": "text",
   "data": "binary",
   "png": "dataurl",
-  "svg": "dataurl",
-};
+  "svg": "dataurl"
+}
 ```
 
 Sass plugins are also included, allowing use of
