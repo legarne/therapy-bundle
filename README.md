@@ -1,5 +1,5 @@
 # @therapy/bundle
-
+[![JSR](https://jsr.io/badges/@therapy/bundle)](https://jsr.io/@therapy/bundle)
 ## Description
 
 @therapy/bundle is a simple web bundler and development server for Deno,
