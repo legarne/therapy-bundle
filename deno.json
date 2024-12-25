@@ -6,11 +6,15 @@
     "test": "deno test -A --coverage --clean",
     "coverage": {
       "command": "deno coverage",
-      "dependencies": ["test"]
+      "dependencies": [
+        "test"
+      ]
     },
     "coverage-html": {
       "command": "deno coverage --html",
-      "dependencies": ["test"]
+      "dependencies": [
+        "test"
+      ]
     }
   },
   "exports": {
@@ -31,9 +35,15 @@
   },
   "fmt": {
     "lineWidth": 80,
-    "exclude": ["./_tests/_mocks/**/*"]
+    "exclude": [
+      "./_tests/_mocks/**/*"
+    ]
   },
   "publish": {
-    "exclude": ["_tests/", "scripts/", "./.github"]
+    "exclude": [
+      "_tests/",
+      "scripts/",
+      "./.github"
+    ]
   }
 }
