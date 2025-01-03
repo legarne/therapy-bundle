@@ -11,7 +11,7 @@ const denoJson = `{
   },
   "imports": {},
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable"],
+    "lib": ["deno.ns", "dom", "dom.iterable"],
     "types": ["./content-types.d.ts"]
   }
 }`;
