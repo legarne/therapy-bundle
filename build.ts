@@ -14,7 +14,7 @@ import { getTherapyConfig, xformIndexHtml } from "./esbuild-utils.ts";
  * by default, and clean that dir if it exists.
  */
 export const runBuild = async (): Promise<void> => {
-  const therapyConfig = await getTherapyConfig("buildConfig");
+  const therapyConfig = getTherapyConfig("build");
 
   if (!therapyConfig.outdir) {
     therapyConfig.outdir = getPath(`${Deno.cwd()}/dist`);

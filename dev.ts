@@ -29,7 +29,7 @@ export const runServe = async (): Promise<void> => {
 
   console.log(chalk.blue("Getting temp folder"));
 
-  const therapyConfig = await getTherapyConfig("serveConfig");
+  const therapyConfig = getTherapyConfig("serve");
 
   // always reuse a tmp dir if it exists
   if (!therapyConfig.outdir) {

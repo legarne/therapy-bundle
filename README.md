@@ -1,5 +1,7 @@
 # @therapy/bundle
+
 [![JSR](https://jsr.io/badges/@therapy/bundle)](https://jsr.io/@therapy/bundle)
+
 ## Description
 
 @therapy/bundle is a simple web bundler and development server for Deno,
@@ -78,16 +80,16 @@ Sass plugins are also included, allowing use of
 
 Additional loaders can be added through the configuration file.
 
-```ts
-// therapy.config.ts
-import type { Config } from "@therapy/bundle/types";
-
-export const buildConfig: Config {
-  extraTypes: [
-    ["bin", "binary"],
-    ["csv", "text"]
-  ];
-};
+```json
+// therapy.config.json
+{
+  "build": {
+    "extraTypes": [
+      ["bin", "binary"],
+      ["csv", "text"]
+    ]
+  }
+}
 ```
 
 The included `content-types.d.ts` declaration file is automatically added to
@@ -97,30 +99,29 @@ file to include your types, as appropriate.
 ## Configuration File
 
 Further customization can be passed to esbuild through use of a configuration
-file. If needed, add a `therapy.config.ts` file to the root of your project. The
-interface exposes `port` and `extraTypes`, while the remainder of the type are
-esbuild options.
+file. If needed, add a `therapy.config.json` file to the root of your project.
+The interface exposes `port` and `extraTypes`, while the remainder of the type
+are esbuild options.
 
-```ts
-// therapy.config.ts
-import type { Config } from "@therapy/bundle/types";
-
-export const serveConfig: Config = {
-  port: 4300,
-  outdir: "./serve", // override serving from tmp to ./serve
-  extraTypes: [
-    ["bin", "binary"],
-    ["csv", "text"],
-  ],
-};
-
-export const buildConfig: Config = {
-  extraTypes: [
-    ["bin", "binary"],
-    ["csv", "text"],
-  ],
-  minify: false,
-};
+```json
+// therapy.config.json
+{
+  "serve": {
+    "port": 4300,
+    "outdir": "./serve", // override serving from tmp to ./serve
+    "extraTypes": [
+      ["bin", "binary"],
+      ["csv", "text"]
+    ]
+  },
+  "build": {
+    "extraTypes": [
+      ["bin", "binary"],
+      ["csv", "text"]
+    ],
+    "minify": false
+  }
+}
 ```
 
 If not provided or specified, the dev and build tasks will use defaults; the

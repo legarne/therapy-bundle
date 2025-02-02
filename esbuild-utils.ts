@@ -132,9 +132,9 @@ export const getTsCompilerOptions = (): {
  * @param configType - If the config should be passed to build or serve
  * @returns The therapy config
  */
-export const getTherapyConfig = async (
-  configType: "serveConfig" | "buildConfig",
-): Promise<Config> => {
+export const getTherapyConfig = (
+  configType: "serve" | "build",
+): Config => {
   // default therapy config
   let therapyConfig: Config = {
     port: 4200,
@@ -150,12 +150,13 @@ export const getTherapyConfig = async (
   };
 
   // if there is a therapy config, get its settings and change the defaults
-  if (configType && fs.existsSync(getPath(`${Deno.cwd()}/therapy.config.ts`))) {
-    // need serve and build config
+  if (
+    configType && fs.existsSync(getPath(`${Deno.cwd()}/therapy.config.json`))
+  ) {
     try {
-      const importConfig = await import(getPath(
-        `${Deno.cwd()}/therapy.config.ts`,
-      ));
+      const importConfig = JSON.parse(
+        fileToString(`${Deno.cwd()}/therapy.config.json`),
+      );
 
       therapyConfig = {
         ...therapyConfig,
