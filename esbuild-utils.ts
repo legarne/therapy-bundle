@@ -2,7 +2,7 @@ import * as xml from "@libs/xml";
 import * as path from "@std/path";
 import * as fs from "@std/fs";
 import { sassPlugin } from "esbuild-sass";
-import { denoPlugins } from "@luca/esbuild-deno";
+import { denoPlugins } from "@oazmi/esbuild-plugin-deno";
 import { fileToString, getPath } from "./utils.ts";
 import type { Config } from "./types.ts";
 import { loaderPlugins } from "./skipPlugins.ts";
@@ -168,6 +168,7 @@ export const getTherapyConfig = (
   }
 
   therapyConfig.plugins = [
+    ...denoPlugins(),
     sassPlugin({
       filter: /\.module\.scss$/,
       type: "local-css",
@@ -186,7 +187,6 @@ export const getTherapyConfig = (
     }),
     ...loaderPlugins(therapyConfig.extraTypes),
     ...therapyConfig.plugins!,
-    ...denoPlugins(),
   ];
 
   therapyConfig.loader = {
