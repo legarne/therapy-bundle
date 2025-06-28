@@ -1,6 +1,7 @@
 import * as xml from "@libs/xml";
 import * as path from "@std/path";
 import * as fs from "@std/fs";
+import type { Plugin } from "esbuild";
 import { sassPlugin } from "esbuild-sass";
 import { denoPlugins } from "@oazmi/esbuild-plugin-deno";
 import { fileToString, getPath } from "./utils.ts";
@@ -167,8 +168,10 @@ export const getTherapyConfig = (
     }
   }
 
+  const tdenoPlugins: Plugin[] = denoPlugins() as unknown as Plugin[];
+
   therapyConfig.plugins = [
-    ...denoPlugins(),
+    ...tdenoPlugins,
     sassPlugin({
       filter: /\.module\.scss$/,
       type: "local-css",
